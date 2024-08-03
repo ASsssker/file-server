@@ -1,6 +1,7 @@
 package server
 
 import (
+	"log"
 	"net/http"
 	"time"
 )
@@ -35,6 +36,14 @@ func NoCache(h http.Handler) http.Handler {
 		for k, v := range noCacheHeaders {
 			w.Header().Set(k, v)
 		}
+
+		h.ServeHTTP(w, r)
+	})
+}
+
+func LogRequests(h http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		log.Printf("IP: %s URL: %s", r.RemoteAddr, r.URL)
 
 		h.ServeHTTP(w, r)
 	})

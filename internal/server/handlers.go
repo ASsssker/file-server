@@ -20,5 +20,5 @@ func NewHandler(path string) Handler {
 	fs := http.FileServer(http.Dir(path))
 	mux.Handle("/", fs)
 
-	return NoCache(mux)
+	return LogRequests(NoCache(mux))
 }
