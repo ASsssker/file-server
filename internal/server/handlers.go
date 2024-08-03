@@ -12,7 +12,7 @@ func NewHandler(path string) Handler {
 
 	path, err := filepath.Abs(path)
 	if err != nil {
-		log.Fatalf("Не удалось получить абсолютный путь к каталогу: %s: %s", path, err.Error())
+		log.Fatalf("Не удалось получить абсолютный путь к каталогу: %s: %s\n", path, err.Error())
 	}
 
 	mux := http.NewServeMux()
