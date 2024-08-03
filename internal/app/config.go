@@ -3,7 +3,7 @@ package app
 import "flag"
 
 const (
-	defaultHTTPHost = "172.0.0.1:8888"
+	defaultHTTPHost = "127.0.0.1:8888"
 	defaultDirPath  = "."
 )
 
