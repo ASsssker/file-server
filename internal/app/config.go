@@ -15,7 +15,7 @@ type AppConfig struct {
 func GetConfig() *AppConfig {
 	conf := AppConfig{}
 
-	flag.StringVar(&conf.Host, "addr", defaultHTTPHost, "Хост на котором запустится сервер. Пример 172.0.0.1:3332")
+	flag.StringVar(&conf.Host, "addr", defaultHTTPHost, "Хост на котором запустится сервер")
 	flag.StringVar(&conf.DirPath, "path", defaultDirPath, "Путь до нужной директории")
 
 	flag.Parse()
