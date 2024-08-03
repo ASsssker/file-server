@@ -18,7 +18,7 @@ func NewHandler(path string) Handler {
 	mux := http.NewServeMux()
 
 	fs := http.FileServer(http.Dir(path))
-	http.Handle("/", fs)
+	mux.Handle("/", fs)
 
 	return mux
 }
